@@ -4,8 +4,10 @@ void bubblesort(unsigned __int8 *M, int size)
 {
 	int i, j;
 	int x;
+	bool is_swap = false;
 	for (i = 0; i<size; i++)
 	{            
+		is_swap = false;
 		for (j = size - 1; j>i; j--)
 		{     
 			if (M[j - 1]>M[j])
@@ -13,7 +15,12 @@ void bubblesort(unsigned __int8 *M, int size)
 				x = M[j - 1];
 				M[j - 1] = M[j];
 				M[j] = x;
+				is_swap = true;
 			}
+		}
+		if(is_swap == false)
+		{
+		       break;	
 		}
 	}
 	for (i = 0; i<size; i++)
